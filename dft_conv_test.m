@@ -1,0 +1,24 @@
+clc;
+clear all;
+close all;
+
+t0 = linspace(0, 6*pi, 1000);
+t1 = linspace(0, 2*pi, 100);
+x = cos(t0);
+h = cos(t1);
+y0 = real(dft_convolve(x, h));
+subplot(2,2,1);
+plot(x, 'LineWidth', 2);
+title('Time Domain Signal x(n)');
+xlabel('Sample Number');
+ylabel('Amplitude');
+subplot(2,2,2);
+plot(h, 'LineWidth', 2);
+title('Impulse Response h(n)');
+xlabel('Sample Number');
+ylabel('Amplitude');
+subplot(2,2,3:4);
+plot(y0, 'LineWidth', 2);
+title('Ouput Signal y(n) using DFT and IDFT');
+xlabel('Sample Number');
+ylabel('Amplitude');
